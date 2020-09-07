@@ -44,18 +44,20 @@ Things you may want to cover:
 ### Association
 
 - has_many :items
-- has_many :addresses
+- has_many :users_items
+- belongs_to :purchase
 
 ## users_itemsテーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
-| users   | references | null: false, foreign_key: true |
-| items  | references | null: false, foreign_key: true |
+| user   | references | null: false, foreign_key: true |
+| item  | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :items
-- belongs_to :users
+- belongs_to :item
+- belongs_to :user
+- has_one :address
 
 ## addressesテーブル
 | Column                | Type   | Options     |
@@ -83,12 +85,23 @@ Things you may want to cover:
 |  haisoufee            | integer | null: false |
 |  chiiki               | integer | null: false |
 |  nisuu                | integer | null: false |
-|  kakaku                | integer | null: false |
-
+|  kakaku               | integer | null: false |
+| user_id               | integer | foreign_key: true|
 ### Association
 
-- belongs_to :addresses
-- belongs_to :users
+- belongs_to :users_item
+- belongs_to :user
+- belongs_to :purchase
+
+
+# purchase テーブル
+| Column                | Type    | Options     |
+| --------------------- | ------- | ----------- |
+| user_id               | integer | foreign_key: true|
+| items_id              | integer | foreign_key: true|
+
+- has_one :user
+- has_one :item
 
 
 
