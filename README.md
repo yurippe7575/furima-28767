@@ -61,9 +61,7 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :item
-- belongs_to :user
-
+has_one :purchase
 
 ## items テーブル
 | Column                | Type   | Options     |
@@ -80,8 +78,8 @@ Things you may want to cover:
 ### Association
 
 
-- belongs_to :user
-- belongs_to :purchase
+- has_one :user
+- has_one :purchase
 
 
 # purchase テーブル
@@ -90,8 +88,9 @@ Things you may want to cover:
 | user_id               | integer | foreign_key: true|
 | items_id              | integer | foreign_key: true|
 
-- has_one :user
-- has_one :item
+- belongs_to :user
+- belongs_to :item
+- belongs_to :address
 
 
 
