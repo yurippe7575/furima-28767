@@ -44,20 +44,10 @@ Things you may want to cover:
 ### Association
 
 - has_many :items
-- has_many :users_items
 - belongs_to :purchase
 
-## users_itemsテーブル
 
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| user   | references | null: false, foreign_key: true |
-| item  | references | null: false, foreign_key: true |
 
-### Association
-- belongs_to :item
-- belongs_to :user
-- has_one :address
 
 ## addressesテーブル
 | Column                | Type   | Options     |
@@ -89,7 +79,7 @@ Things you may want to cover:
 | user_id               | integer | foreign_key: true|
 ### Association
 
-- belongs_to :users_item
+
 - belongs_to :user
 - belongs_to :purchase
 
