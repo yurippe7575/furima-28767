@@ -44,7 +44,7 @@ Things you may want to cover:
 ### Association
 
 - has_many :items
-- belongs_to :purchase
+- has_many :purchase
 
 
 
@@ -58,7 +58,7 @@ Things you may want to cover:
 | banchi                | string | null: false |
 | building              | string | |
 | denwa_number          | string | null: false |
-| purchase_id          | intger | null: false |
+| purchase_id          | intger | foreign_key: true |
 
 
 ### Association
