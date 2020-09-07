@@ -35,52 +35,43 @@ Things you may want to cover:
 | first_name            | string  | null: false |
 | family_name_kana      | string  | null: false |
 | first_name_kana       | string  | null: false |
-| birth_year            | integer | null: false |
-| birth_month           | integer | null: false |
-| birth_day             | integer | null: false |
+| birth_day            | integer | null: false |
 | email                 | string | null: false,unique: true|
 | password              | string | null: false |
-| password confirmation | string | null: false |
+
 
 
 ### Association
 
-- has_many :user_userinfo
-- has_many :address, through: user_userinfo
+- has_many :item_purchases
+- has_many :address, through: item_purchases
 
 ## users_userinfoテーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
-| user   | references | null: false, foreign_key: true |
-| userinfo  | references | null: false, foreign_key: true |
+| user_id   | references | null: false, foreign_key: true |
+| item_purchases_id  | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :userinfo
-- belongs_to :user
+- belongs_to :item_purchases
+- belongs_to :users
 
-## userinfo テーブル
+## item_purchases テーブル
 | Column                | Type   | Options     |
 | --------------------- | ------ | ----------- |
 | yubin_number          | string | null: false |
-| prefecture            | string | null: false |
+| prefecture            | integer | null: false |
 | city                  | string | null: false |
 | banchi                | string | null: false |
 | building              | string | null: false |
 | denwa_number          | string | null: false |
 
-## item テーブル
+## items テーブル
 | Column                | Type   | Options     |
 | --------------------- | ------ | ----------- |
-| images                | string | null: false |
-| item_name             | string | null: false |
+| name                  | string | null: false |
 | setumei               | text   | null: false |
-| categori              | string | null: false |
-| status                | string | null: false |
-|  haisoufee            | string | null: false |
-|  chiiki               | string | null: false |
-|  nisuu                | string | null: false |
-|  fee                  | string | null: false |
 
 
 
