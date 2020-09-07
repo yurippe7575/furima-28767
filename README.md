@@ -58,10 +58,12 @@ Things you may want to cover:
 | banchi                | string | null: false |
 | building              | string | |
 | denwa_number          | string | null: false |
+| purchase_id          | intger | null: false |
+
 
 ### Association
 
-has_one :purchase
+belongs_to :purchase
 
 ## items テーブル
 | Column                | Type   | Options     |
@@ -78,7 +80,7 @@ has_one :purchase
 ### Association
 
 
-- has_one :user
+- belongs_to :user
 - has_one :purchase
 
 
@@ -90,7 +92,7 @@ has_one :purchase
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :address
+- has_one :address
 
 
 
