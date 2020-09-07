@@ -50,8 +50,8 @@ Things you may want to cover:
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
-| users_id   | references | null: false, foreign_key: true |
-| items_id  | references | null: false, foreign_key: true |
+| users   | references | null: false, foreign_key: true |
+| items  | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :items
@@ -67,6 +67,12 @@ Things you may want to cover:
 | building              | string | |
 | denwa_number          | string | null: false |
 
+### Association
+
+- belongs_to :item
+- belongs_to :user
+
+
 ## items テーブル
 | Column                | Type   | Options     |
 | --------------------- | ------ | ----------- |
@@ -77,6 +83,12 @@ Things you may want to cover:
 |  haisoufee            | integer | null: false |
 |  chiiki               | integer | null: false |
 |  nisuu                | integer | null: false |
+|  kakaku                | integer | null: false |
+
+### Association
+
+- belongs_to :addresses
+- belongs_to :users
 
 
 
