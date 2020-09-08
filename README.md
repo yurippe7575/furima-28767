@@ -22,3 +22,77 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+# テーブル設計
+
+## users テーブル
+
+| Column                | Type    | Options     |
+| --------------------- | ------- | ----------- |
+| nickname              | string  | null: false |
+| family_name           | string  | null: false |
+| first_name            | string  | null: false |
+| family_name_kana      | string  | null: false |
+| first_name_kana       | string  | null: false |
+| birth_day             | date    | null: false |
+| email                 | string | null: false,unique: true|
+| password              | string | null: false |
+
+
+
+### Association
+
+- has_many :items
+- has_many :purchase
+
+
+
+
+## addressesテーブル
+| Column                | Type   | Options     |
+| --------------------- | ------ | ----------- |
+| yubin_number          | string | null: false |
+| prefecture            | integer | null: false |
+| city                  | string | null: false |
+| banchi                | string | null: false |
+| building              | string | |
+| denwa_number          | string | null: false |
+| purchase_id          | intger | foreign_key: true |
+
+
+### Association
+
+belongs_to :purchase
+
+## items テーブル
+| Column                | Type   | Options     |
+| --------------------- | ------ | ----------- |
+| name                  | string | null: false |
+| setumei               | text   | null: false |
+| categori              | integer | null: false |
+| status                | integer | null: false |
+|  haisoufee            | integer | null: false |
+|  chiiki               | integer | null: false |
+|  nisuu                | integer | null: false |
+|  kakaku               | integer | null: false |
+| user_id               | integer | foreign_key: true|
+### Association
+
+
+- belongs_to :user
+- has_one :purchase
+
+
+# purchase テーブル
+| Column                | Type    | Options     |
+| --------------------- | ------- | ----------- |
+| user_id               | integer | foreign_key: true|
+| items_id              | integer | foreign_key: true|
+
+- belongs_to :user
+- belongs_to :item
+- has_one :address
+
+
+
