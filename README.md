@@ -72,10 +72,10 @@ belongs_to :purchase
 | setumei               | text   | null: false |
 | categori              | integer | null: false |
 | status                | integer | null: false |
-|  haisoufee            | integer | null: false |
-|  chiiki               | integer | null: false |
-|  nisuu                | integer | null: false |
-|  kakaku               | integer | null: false |
+|  haisou_cost            | integer | null: false |
+|  place               | integer | null: false |
+|  days                | integer | null: false |
+|  cost               | integer | null: false |
 | user_id               | integer | foreign_key: true|
 ### Association
 
