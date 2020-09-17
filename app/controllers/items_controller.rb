@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
   end
 
   private
-  def tweet_params
+  def item_params
     params.require(:user).permit(:item_name, :setumei,:categori_id, :status_id, :haisou_cost_id, :place_id, :days_id, :cost)
   end
 end
