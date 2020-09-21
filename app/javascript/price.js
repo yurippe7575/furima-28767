@@ -22,6 +22,5 @@ window.addEventListener('load', function(){
     // innerHtml textContent
     tesuuryonyuuryoku.innerHTML = tesuuryo;
     riekinyuuryoku.innerHTML = rieki;
-
   })
 })

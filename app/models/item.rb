@@ -15,13 +15,13 @@ class Item < ApplicationRecord
 
 
 
-    #def message_params
-      #params.require(:message).permit(:content, :image).merge(user_id: current_user.id)
-  
+    def message_params
+      params.require(:item).permit(:content, :image).merge(user_id: current_user.id)
+    end
  
     #空の投稿を保存できないようにする
     with_options presence: true do
-      validates :title, :text, :categori_id, :haisou_cost_id, :status_id, :days_id, :place_id
+      validates :item_name, :setumei, :categori_id, :haisou_cost_id, :status_id, :days_id, :place_id
     end
 
     #選択が「--」のままになっていないか
@@ -29,5 +29,8 @@ class Item < ApplicationRecord
      validates :categori_id, :haisou_cost_id, :status_id, :days_id, :place_id
     end
   
+    validates :cost, format: { with: /\A[0-9]+\z/ }
+
+    validates :cost,numericality: { greater_than: 300 }
+    validates :cost,numericality: { less_than: 9999999 }
 end
-  
