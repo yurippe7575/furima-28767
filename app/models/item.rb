@@ -21,7 +21,7 @@ class Item < ApplicationRecord
  
     #空の投稿を保存できないようにする
     with_options presence: true do
-      validates :item_name, :setumei, :categori_id, :haisou_cost_id, :status_id, :days_id, :place_id
+      validates :item_name, :setumei, :categori_id, :haisou_cost_id, :status_id, :days_id, :place_id, :cost
     end
 
     #選択が「--」のままになっていないか

@@ -1,5 +1,80 @@
 require 'rails_helper'
+describe Item do
+    before do
+      user = FactoryBot.create(:user)
+      @item = FactoryBot.build(:item, user_id: user.id)
+    end
 
-RSpec.describe Item, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+    describe '新規投稿' do
+      context '新規投稿がうまくいくとき' do
+        it "全て揃っている時保存できる" do
+          expect(@item).to be_valid
+        end
+      end  
+    end
+
+    context '新規投稿がうまくいかないとき' do
+      it "item_nameが空だと登録できない" do
+        @item.item_name = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Item name can't be blank")
+      end
+
+      it "setumeiが空だと登録できない" do
+        @item.setumei = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Setumei can't be blank")
+      end
+
+      it "status_idが空だと登録できない" do
+        @item.status_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Status can't be blank")
+      end
+
+      it "haisou_cost_idが空だと登録できない" do
+        @item.haisou_cost_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Haisou cost can't be blank")
+      end
+
+      it "place_idが空だと登録できない" do
+        @item.place_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Place can't be blank")
+      end
+
+      it "days_idが空だと登録できない" do
+        @item.days_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Days can't be blank")
+      end
+
+      it "costが空だと登録できない" do
+        @item.cost = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Cost can't be blank")
+      end
+
+      it "costが299以下だと登録できない" do
+        @item.cost = '299'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Cost must be greater than 300")
+      end
+
+      it "costが10000000以上だと登録できない" do
+        @item.cost = '10000000'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Cost must be less than 9999999")
+      end
+
+      it "costが全角英数だと登録できない" do
+        @item.cost = '３３３'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Cost is not a number")
+      end
+
+
+    end
 end

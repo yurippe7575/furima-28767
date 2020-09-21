@@ -11,5 +11,7 @@ FactoryBot.define do
     last_name_kana        {gimei.last.katakana}
     first_name_kana       {gimei.first.katakana}
     birth_day             {Faker::Date.in_date_period}
+
+    # has_many :items
   end
 end
