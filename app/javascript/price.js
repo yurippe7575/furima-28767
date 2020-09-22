@@ -12,12 +12,11 @@ window.addEventListener('load', function(){
   const tesuuryonyuuryoku = document.getElementById("add-tax-price");
   const riekinyuuryoku = document.getElementById("profit");
 
-  
   nyuuryoku.addEventListener('input', function(){
     const keisan = nyuuryoku.value;
     const tesuuryo = keisan / 10;
     const rieki = keisan - tesuuryo;
     tesuuryonyuuryoku.innerHTML = tesuuryo;
-    riekinyuuryoku.innerHTML = rieki;
+    riekinyuuryoku.innerHTML = rieki
   })
 })
