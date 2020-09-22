@@ -77,6 +77,13 @@ describe Item do
         expect(@item.errors.full_messages).to include("Place must be other than 0")
       end
 
+      it "days_idが1だと登録できない" do
+        @item.days_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Days must be other than 1")
+      end
+
+
 
 
     end
