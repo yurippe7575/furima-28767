@@ -25,8 +25,12 @@ class Item < ApplicationRecord
     end
 
     #選択が「--」のままになっていないか
+    with_options numericality: { other_than: 0 } do #メッセージ
+     validates :place_id
+    end
+
     with_options numericality: { other_than: 1 } do #メッセージ
-     validates :categori_id, :haisou_cost_id, :status_id, :days_id, :place_id
+      validates :categori_id, :haisou_cost_id, :status_id, :days_id
     end
   
     validates :cost, format: { with: /\A[0-9]+\z/ }

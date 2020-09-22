@@ -75,6 +75,31 @@ describe Item do
         expect(@item.errors.full_messages).to include("Cost is not a number")
       end
 
+      it "categori_idが1だと登録できない" do
+        @item.categori_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Categori must be other than 1")
+      end
+
+      it "status_idが1だと登録できない" do
+        @item.status_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Status must be other than 1")
+      end
+
+      it "haisou_cost_idが1だと登録できない" do
+        @item.haisou_cost_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Haisou cost must be other than 1")
+      end
+
+      it "place_idが0だと登録できない" do
+        @item.place_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Place must be other than 0")
+      end
+
+
 
     end
 end
