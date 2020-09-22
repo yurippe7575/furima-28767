@@ -35,6 +35,5 @@ class Item < ApplicationRecord
   
     validates :cost, format: { with: /\A[0-9]+\z/ }
 
-    validates :cost,numericality: { greater_than: 300 }
-    validates :cost,numericality: { less_than: 9999999 }
+    validates :cost,numericality: { greater_than: 300, less_than: 9999999 }
 end

@@ -17,9 +17,6 @@ window.addEventListener('load', function(){
     const keisan = nyuuryoku.value;
     const tesuuryo = keisan / 10;
     const rieki = keisan - tesuuryo;
-    // console.log(tesuuryo);
-    // console.log(rieki);
-    // innerHtml textContent
     tesuuryonyuuryoku.innerHTML = tesuuryo;
     riekinyuuryoku.innerHTML = rieki;
   })

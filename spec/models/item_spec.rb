@@ -27,29 +27,7 @@ describe Item do
         expect(@item.errors.full_messages).to include("Setumei can't be blank")
       end
 
-      it "status_idが空だと登録できない" do
-        @item.status_id = ''
-        @item.valid?
-        expect(@item.errors.full_messages).to include("Status can't be blank")
-      end
-
-      it "haisou_cost_idが空だと登録できない" do
-        @item.haisou_cost_id = ''
-        @item.valid?
-        expect(@item.errors.full_messages).to include("Haisou cost can't be blank")
-      end
-
-      it "place_idが空だと登録できない" do
-        @item.place_id = ''
-        @item.valid?
-        expect(@item.errors.full_messages).to include("Place can't be blank")
-      end
-
-      it "days_idが空だと登録できない" do
-        @item.days_id = ''
-        @item.valid?
-        expect(@item.errors.full_messages).to include("Days can't be blank")
-      end
+      
 
       it "costが空だと登録できない" do
         @item.cost = ''
