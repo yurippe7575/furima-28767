@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit]
+  before_action :set_item, only: [:show, :edit, :update]
 
   def index
     @items = Item.all.order("created_at DESC")
@@ -25,7 +25,24 @@ class ItemsController < ApplicationController
   end
 
   def edit
+
   end
+
+  def update
+    if @item.update(item_params)
+      redirect_to item_path
+    else
+      render :edit
+    end
+  end
+
+  #   def destroy
+  #     if @item.destroy
+  #       redirect_to root_path
+  #     else
+  #       render :show
+  #     end
+  #  end
 
 
 
@@ -39,3 +56,4 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:item_name, :setumei, :image, :categori_id, :status_id, :haisou_cost_id, :place_id, :days_id, :cost).merge(user_id: current_user.id)
   end
 end
+
