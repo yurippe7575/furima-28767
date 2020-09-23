@@ -3,7 +3,7 @@ class Item < ApplicationRecord
      belongs_to_active_hash :categori
      belongs_to_active_hash :haisou_cost
      belongs_to_active_hash :place
-     belongs_to_active_hash :day
+     belongs_to_active_hash :days
      belongs_to_active_hash :status
     
 
